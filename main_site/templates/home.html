@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'style-home.css' %}">
+{% endblock %}
+
+{% block body %}
+     <main>
+            <div class="main-section">
+                <h1 class="name">I'M <br> ALI <br> KARANFIL</h1>
+                <p class='my-job'>Web Developer</p>
+            </div>
+            <div class="status">
+                <p class="my-status"><span class="stat">STATUS</span> <br> {{ status.status }} </p>
+            </div>
+            <div class="about" id="about-me-sec">
+                <div class="about-me-section">
+                    <div class="am-sections">
+                        <h2 class="am-sec-h">Values</h2>
+                        <p class="am-sec-text">{{ about_me.values }}</p>
+                    </div>
+
+                    <div class="am-sections">
+                        <h2 class="am-sec-h">Goals</h2>
+                        <p class="am-sec-text">{{ about_me.goals }}</p>
+                    </div>
+
+                    <div class="am-sections">
+                        <h2 class="am-sec-h">Hobbies</h2>
+                        <p class="am-sec-text">{{ about_me.hobbies }}</p>
+                    </div>
+                </div>
+
+                <hr class="hr1 margin-down">
+
+                <div class="info-about-me">
+
+                    <h3>About me</h3>
+                    <p class="main-about-text">
+                        {{ about_me.about_me }}
+                    </p>
+                </div>
+            </div>
+            <div class="skills" id="skills-sec">
+                <div class="skills-left-side">
+                    <h2>My Skills</h2>
+                    <p>{{ my_skills.about_skills }}</p>
+                </div>
+
+                <div class="skills-right-side">
+                    <h3>HTML/CSS</h3>
+                    <p>{{ my_skills.html_css }} %</p>
+                    <h3>JavaScript</h3>
+                    <p>{{ my_skills.js }} %</p>
+                    <h3>Python(Django)</h3>
+                    <p>{{ my_skills.python_django }} %</p>
+                    <h3>SQL</h3>
+                    <p>{{ my_skills.sql }} %</p>
+                </div>
+            </div>
+<!--            <hr>-->
+            <div class="my-education">
+                <div class="education-left-side">
+                    <h2>My Education</h2>
+                    <p>{{ my_education_about.about_education }}</p>
+                </div>
+
+                <div class="edication-right-side">
+                    {% for me in my_education %}
+                    <div class="education">
+                        <h3>{{ me.sertificate }}</h3>
+                        <p>{{ me.degree }} / {{ me.start_date | date:'M Y' }} / {{ me.end_date | date:'M Y' }}</p>
+                        <p class="year"> {{ me.year }} year</p>
+                        <hr>
+                        <p>{{ me.about_degree }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+<!--            <hr>-->
+            <div class="experience" id="experience-sec">
+                <div class="experience-left-side">
+                    <h2>My Experience</h2>
+                    <p>{{ my_experience_about.about_experience }}</p>
+                </div>
+
+                <div class="experience-right-side">
+                    {% for my_exp in my_experience %}
+                    <div class="work-places">
+                        <h3>{{my_exp.worked_as}}</h3>
+                        <p>{{ my_exp.place }} / {{ my_exp.start_date | date:"M Y" }} / {{ my_exp.end_date | date:'M Y' }} </p>
+                        <p class="year">{{ my_exp.year }} year</p>
+                        <hr>
+                        <p>{{ my_exp.about_job }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+<!--            <hr>-->
+            <div class="whole-portfolio">
+                <div class="portfolio" id="portfolio-sec">
+                    <h1>Portfolio</h1>
+                    <p class="about-portfolio">
+                        {{ portfolio_about.about_portfolio }}
+                    </p>
+                </div>
+                <div class="portfolio-flex">
+                    {% for port in portfolio %}
+
+                    <a href="{{ port.link }}" class="portfolio-links"><img src="{{ port.image.url }}" alt="" class="portfolio-l"></a>
+                    <img src="{{ port.image.url }}" alt="" class="portfolio-links">
+                    <img src="{{ port.image.url }}" alt="" class="portfolio-links">
+
+                    {% endfor %}
+                </div>
+            </div>
+     </main>
+{% endblock %}

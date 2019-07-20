@@ -1,0 +1,43 @@
+{% load static %}
+
+<!Doctype html>
+<html>
+    <head>
+        {% block head %}
+        {% endblock %}
+        <link rel="stylesheet" href="{% static 'style-base.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="header-menu">
+                <a href="#" class="menu-a" id="coloring">Home</a>
+                <a href="#about-me-sec" class="menu-a">About Me</a>
+                <a href="#skills-sec" class="menu-a">Skills</a>
+                <a href="#experience-sec" class="menu-a">Experience</a>
+                <a href="#portfolio-sec" class="menu-a">Portfolio</a>
+                <a href="#contact-sec" class="menu-a">Contact Me</a>
+            </div>
+        </header>
+        <hr class="hr1">
+
+        {% block body %}
+
+        {% endblock %}
+    <footer>
+            <div class="contact-footer" id="contact-sec">
+               <div class="left-footer">
+                    <h1 class='contact-h'>Contact</h1>
+                    <a href="https://twitter.com/talha54403227" class="sn-links"><img src="{% static 'images/twitter(1).png' %}" alt="" class="icons"></a>
+                    <a href="https://vk.com/id204765221" class="sn-links"><img src="{% static 'images/vk(1).png' %}" alt="" class="icons"></a>
+                    <a href="https://www.instagram.com/karanfil058/?hl=ru" class="sn-links"><img src="{% static 'images/instagram(1).png' %}" alt="" class="icons"></a>
+                    <p class="my-status" id="email"><span class="stat">Email:</span> alikaranfil011@gmail.com</p>
+                </div>
+                <div class="right-footer">
+                <p class="contact-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blandi    tiis animi reiciendis ut ducimus quos quibusdam minima, iure accusamus laboriosam.     Obcaecati ipsum, animi officia itaque eius ipsa veritatis autem beataffe architecto!</p>
+                Designed &amp; coded by Ali Karanfil.
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
